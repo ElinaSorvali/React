@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import './App.css'
 import Laskuri from './Laskuri'
 import Viesti from './Viesti'
+import Posts from './Posts'
 
 const App = () => {
   
@@ -11,12 +12,12 @@ const [showLaskuri, setShowLaskuri] = useState(false)
 const huomio = () => {
   alert("Huomio!")
 }
-
-
   return (
     <>
       <div>
-        <h1>Testiä</h1>
+        <h1>Hello</h1>
+
+        <Posts />
         
         {/* Jos Laskuri on true, näkyy */}
         {showLaskuri && <Laskuri huomio={huomio} />}
