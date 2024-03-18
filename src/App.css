@@ -1,3 +1,10 @@
+.posts {
+  border: 2px solid rgb(91, 12, 88);
+  border-radius: 10px;   /*pyöristys */
+  padding: 10px; 
+  margin-bottom: 10px;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;

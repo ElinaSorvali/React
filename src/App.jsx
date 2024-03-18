@@ -8,6 +8,7 @@ const App = () => {
   
   //App komponentin tila
 const [showLaskuri, setShowLaskuri] = useState(false)
+const [showPosts, setShowPosts] = useState(false)
 
 const huomio = () => {
   alert("Huomio!")
@@ -16,13 +17,17 @@ const huomio = () => {
     <>
       <div>
         <h1>Hello</h1>
-
-        <Posts />
+        
+        {showPosts && <button onClick={() =>setShowPosts(!showPosts)}>Piilota postaus</button>}
+        {!showPosts && <button onClick={() =>setShowPosts(!showPosts)}>Näytä postaus</button>}
+        {showPosts && <Posts />}
         
         {/* Jos Laskuri on true, näkyy */}
         {showLaskuri && <Laskuri huomio={huomio} />}
         {showLaskuri && <button onClick={() =>setShowLaskuri(!showLaskuri)}>Piilota laskuri</button>}
         {!showLaskuri && <button onClick={() =>setShowLaskuri(!showLaskuri)}>Näytä laskuri</button>}
+
+        
 
 
         <Viesti teksti="tervehdys app-komponentista" />

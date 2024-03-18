@@ -20,7 +20,10 @@ const Posts = () => {
     {
       posts && posts.map(p => 
         <div className='posts' key ={p.id}>
-        <p>{p.title}</p>
+          <p><b>UserId: </b>{p.userId}</p>
+          <p><b>Id:</b> {p.id}</p>
+        <p><b>Title:</b><br></br> {p.title}</p>
+        <p><b>Body:</b><br></br> {p.body}</p>
         </div>
         )
     }
