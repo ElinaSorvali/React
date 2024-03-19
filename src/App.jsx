@@ -3,6 +3,7 @@ import './App.css'
 import Laskuri from './Laskuri'
 import Viesti from './Viesti'
 import Posts from './Posts'
+import CustomerList from './CustomerList'
 
 const App = () => {
   
@@ -17,6 +18,8 @@ const huomio = () => {
     <>
       <div>
         <h1>Hello</h1>
+
+        <CustomerList />
         
         {showPosts && <button onClick={() =>setShowPosts(!showPosts)}>Piilota postaus</button>}
         {!showPosts && <button onClick={() =>setShowPosts(!showPosts)}>Näytä postaus</button>}

@@ -1,3 +1,13 @@
+
+.customerDetails{
+  background-color: cadetblue;
+  border-style: solid;
+  width: 85%;
+  margin: auto;
+  margin-bottom: 50px;
+  border-radius: 30px;
+}
+
 .posts {
   border: 2px solid rgb(91, 12, 88);
   border-radius: 10px;   /*pyöristys */
