@@ -24,6 +24,7 @@ const Customer = ({customer}) => {
 </h4>
 
     {showDetails && <div className='customerDetails'>
+        <h3>{customer.companyName}</h3>
         <table>
             <thead>
                 <tr>

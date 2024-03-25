@@ -22,6 +22,14 @@
   text-align: center;
 }
 
+.nappi {
+  border-radius: 10px;
+  margin-left: 10 px;
+  font-size: 26px;
+  background-color: cadetblue;
+  color: white;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
