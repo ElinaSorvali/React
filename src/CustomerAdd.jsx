@@ -75,9 +75,9 @@ const CustomerAdd = ({setLisäystila, setIsPositive, setMessage, setShowMessage}
         <div><input type='text' value={newCountry} onChange={({target}) => setNewCountry(target.value)} placeholder='Country' /></div>
         <div><input type='text' value={newPhone} onChange={({target}) => setNewPhone(target.value)} placeholder='Phone' /></div>
         <div><input type='text' value={newFax} onChange={({target}) => setNewFax(target.value)} placeholder='Fax' /></div>
-
-        <input type='submit' value='save' />
-        <input type='button' value='back' onClick={() => setLisäystila(false)} />
+    <p>
+        <input type='submit' className='nappi' value='save' />
+        <input type='button' className='nappi' value='back' onClick={() => setLisäystila(false)} /></p>
 
     </form>
 

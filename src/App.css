@@ -1,6 +1,11 @@
 
+#edit {
+  font-size: medium;
+
+}
+
 .customerDetails{
-  background-color: cadetblue;
+  background-color: rgb(28, 119, 122);
   border-style: solid;
   width: 85%;
   margin: auto;
@@ -55,8 +60,16 @@
 
 .nappi {
   border-radius: 10px;
-  margin-left: 10 px;
+  margin-left: 10px;
   font-size: 26px;
+  background-color: cadetblue;
+  color: white;
+}
+
+.nappi1 {
+  border-radius: 10px; 
+  margin-right: 10px;
+  font-size: 18px;
   background-color: cadetblue;
   color: white;
 }

@@ -66,19 +66,19 @@ const CustomerEdit = ({setMuokkaustila, setIsPositive, setMessage, setShowMessag
 
     <form on onSubmit={handleSubmit}>
         <div><input type='text' value={newCustomerId} disabled /></div>
-        <div><input type='text' value={newCompanyName} onChange={({target}) => setNewCompanyName(target.value)} placeholder='Company Name' /></div>
-        <div><input type='text' value={newContactName} onChange={({target}) => setNewContactName(target.value)} placeholder='Contact Name' /></div>
-        <div><input type='text' value={newContactTitle} onChange={({target}) => setNewContactTitle(target.value)} placeholder='Contact Title' /></div>
-        <div><input type='text' value={newAddress} onChange={({target}) => setNewAddress(target.value)} placeholder='Address' /></div>
-        <div><input type='text' value={newCity} onChange={({target}) => setNewCity(target.value)} placeholder='City' /></div>
-        <div><input type='text' value={newRegion} onChange={({target}) => setNewRegion(target.value)} placeholder='Region' /></div>
-        <div><input type='text' value={newPostalCode} onChange={({target}) => setNewPostalCode(target.value)} placeholder='Postal code' /></div>
-        <div><input type='text' value={newCountry} onChange={({target}) => setNewCountry(target.value)} placeholder='Country' /></div>
-        <div><input type='text' value={newPhone} onChange={({target}) => setNewPhone(target.value)} placeholder='Phone' /></div>
-        <div><input type='text' value={newFax} onChange={({target}) => setNewFax(target.value)} placeholder='Fax' /></div>
-
-        <input type='submit' value='save' />
-        <input type='button' value='back' onClick={() => setMuokkaustila(false)} />
+        <div>Company Name<br></br><input type='text' value={newCompanyName} onChange={({target}) => setNewCompanyName(target.value)} placeholder='Company Name' /></div>
+        <div>Contact Name<br></br><input type='text' value={newContactName} onChange={({target}) => setNewContactName(target.value)} placeholder='Contact Name' /></div>
+        <div>Contact Title<br></br><input type='text' value={newContactTitle} onChange={({target}) => setNewContactTitle(target.value)} placeholder='Contact Title' /></div>
+        <div>Address<br></br><input type='text' value={newAddress} onChange={({target}) => setNewAddress(target.value)} placeholder='Address' /></div>
+        <div>City<br></br><input type='text' value={newCity} onChange={({target}) => setNewCity(target.value)} placeholder='City' /></div>
+        <div>Region<br></br><input type='text' value={newRegion} onChange={({target}) => setNewRegion(target.value)} placeholder='Region' /></div>
+        <div>Postal code<br></br><input type='text' value={newPostalCode} onChange={({target}) => setNewPostalCode(target.value)} placeholder='Postal code' /></div>
+        <div>Country<br></br><input type='text' value={newCountry} onChange={({target}) => setNewCountry(target.value)} placeholder='Country' /></div>
+        <div>Phone<br></br><input type='text' value={newPhone} onChange={({target}) => setNewPhone(target.value)} placeholder='Phone' /></div>
+        <div>Fax<br></br><input type='text' value={newFax} onChange={({target}) => setNewFax(target.value)} placeholder='Fax' /></div>
+<p>
+        <input type='submit' className='nappi' value='save' />
+        <input type='button' className='nappi' value='back' onClick={() => setMuokkaustila(false)} /></p>
 
     </form>
 
