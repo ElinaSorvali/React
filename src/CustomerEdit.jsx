@@ -64,7 +64,7 @@ const CustomerEdit = ({setMuokkaustila, setIsPositive, setMessage, setShowMessag
     <div id="edit">
     <h2>Customer edit</h2>
 
-    <form on onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
         <div><input type='text' value={newCustomerId} disabled /></div>
         <div>Company Name<br></br><input type='text' value={newCompanyName} onChange={({target}) => setNewCompanyName(target.value)} placeholder='Company Name' /></div>
         <div>Contact Name<br></br><input type='text' value={newContactName} onChange={({target}) => setNewContactName(target.value)} placeholder='Contact Name' /></div>

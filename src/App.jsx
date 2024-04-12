@@ -1,16 +1,20 @@
 import React, {useState} from 'react'
 import './App.css'
 import Laskuri from './Laskuri'
-import Viesti from './Viesti'
 import Posts from './Posts'
 import CustomerList from './CustomerList'
+import UserList from './UserList'
 import Message from './Message'
+import ProductList from './ProductList'
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+
 
 const App = () => {
   
   //App komponentin tila
-const [showLaskuri, setShowLaskuri] = useState(false)
-const [showPosts, setShowPosts] = useState(false)
 
 //Statet messagen näyttämistä varten
 const [showMessage, setShowMessage] = useState(false)
@@ -18,35 +22,57 @@ const [message, setMessage] = useState('')
 const [isPositive, setIsPositive] = useState(false)
 
 
-
-const huomio = () => {
-  alert("Huomio!")
-}
   return (
-    <>
-      <div>
-        <h1>Hello</h1>
 
-        {showMessage && <Message message={message} isPositive={isPositive} /> }
+   <div className='App'>
+      <Router>
+      
+      <Navbar id="navi" expand="lg" bg="dark" variant="dark">
+        <Nav className="mr-auto">
+            <Nav.Link href='/customers'>Customers</Nav.Link>
+            <Nav.Link href='/posts'>Some higlights</Nav.Link>
+            <Nav.Link href='/users'>Users</Nav.Link>
+            <Nav.Link href='/products'>Products</Nav.Link>
+            <Nav.Link href='/laskuri'>Laskuri</Nav.Link>
+        </Nav>
+      </Navbar>
+                    
+    <h1>Northwind Corporation</h1>
 
-        <CustomerList setIsPositive={setIsPositive} setMessage={setMessage} setShowMessage={setShowMessage} />
-        
-        {showPosts && <button onClick={() =>setShowPosts(!showPosts)}>Piilota postaus</button>}
-        {!showPosts && <button onClick={() =>setShowPosts(!showPosts)}>Näytä postaus</button>}
-        {showPosts && <Posts />}
-        
-        {/* Jos Laskuri on true, näkyy */}
-        {showLaskuri && <Laskuri huomio={huomio} />}
-        {showLaskuri && <button onClick={() =>setShowLaskuri(!showLaskuri)}>Piilota laskuri</button>}
-        {!showLaskuri && <button onClick={() =>setShowLaskuri(!showLaskuri)}>Näytä laskuri</button>}
+    {showMessage && <Message message={message} isPositive={isPositive} />}
 
-        
+    
+    <Routes id="routes">
+      <Route path="/customers"
+      element={<CustomerList setMessage={setMessage} setIsPositive={setIsPositive} 
+      setShowMessage={setShowMessage} />}>
+      </Route>
 
+      <Route path="/users"
+      element={<UserList setMessage={setMessage} setIsPositive={setIsPositive} 
+      setShowMessage={setShowMessage} />}>
+      </Route>
 
-        <Viesti teksti="tervehdys app-komponentista" />
+      <Route path="/products"
+      element={<ProductList setMessage={setMessage} setIsPositive={setIsPositive} 
+      setShowMessage={setShowMessage} />}>
+      </Route>
+
+      <Route path="/posts"
+      element={<Posts />}>
+      </Route>
+      
+      <Route path="/laskuri" 
+      element={<Laskuri />}>
+    </Route>
+    
+    </Routes>
+  
+  </Router>
+
       </div>
      
-    </>
+
   )
 }
 
