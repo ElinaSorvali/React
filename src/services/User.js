@@ -1,23 +1,40 @@
 import axios from "axios";
 
 const baseUrl = "https://localhost:7024/api/Users"
+
+let token = null
+const setToken = newToken => {
+    token = `bearer ${newToken}`
+}
+
 //Axios-kirjastolla pitää olla oikeat nimet (delete, put jne) mutta metodin nimet voi itse valita
 const getAll = () => {
-    
-    const request = axios.get(baseUrl)
+    const config = {
+        headers: { Authorization: token },
+    }    
+    const request = axios.get(baseUrl, config)
     return request.then(response => response.data)
 }
 
 const create = newUser => {
-    return axios.post(baseUrl, newUser)
+    const config = {
+        headers: { Authorization: token },
+    }  
+    return axios.post(baseUrl, newUser, config)
 }
 
 const remove = id => {
-    return axios.delete(`${baseUrl}/${id}`)
+    const config = {
+        headers: { Authorization: token },
+    }  
+    return axios.delete(`${baseUrl}/${id}`, config)
 }
 
 const update = object => {
-    return axios.put(`${baseUrl}/${object.userId}`, object)
+    const config = {
+        headers: { Authorization: token },
+    }  
+    return axios.put(`${baseUrl}/${object.userId}`, object, config)
 }
 
-export default { getAll, create, remove, update }
+export default { getAll, create, remove, update, setToken }

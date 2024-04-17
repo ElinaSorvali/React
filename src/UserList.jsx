@@ -16,6 +16,11 @@ const UserList = ({setIsPositive, setShowMessage, setMessage}) => {
 
 
   useEffect(() => {
+    //token-hommeli, että kirjautumishommeli toimii
+    const token = localStorage.getItem('token')
+      UserService
+        .setToken(token)
+        //loppuu
     UserService.getAll()
     .then(data => {
         setUsers(data)
