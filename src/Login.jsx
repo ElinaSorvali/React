@@ -12,58 +12,46 @@ const Login = ({setIsPositive, setMessage, setShowMessage, setLoggedInUser}) => 
     
     // onSubmit tapahtumankäsittelijä funktio
     const handleSubmit = (event) => {
-      event.preventDefault();
-  
-      // Tarkistaa onko käyttäjänimi ja salasana syötetty
-      if (!username || !password) {
-          setMessage("Username and password are required");
-          setIsPositive(false);
-          setShowMessage(true);
-          return;
-      }
-  
-      var userForAuth = {
-          username: username,
-          password: md5(password) // Salataan md5 kirjaston metodilla
-      };
-  
-      LoginService.authenticate(userForAuth)
-          .then(response => {
-              if (response.status === 200) {
-  
-                  // Talletetaan tiedot local storageen
-                  localStorage.setItem("username", response.data.username);
-                  localStorage.setItem("accesslevelId", response.data.accesslevelId);
-                  localStorage.setItem("token", response.data.token);
-  
-                  setLoggedInUser(response.data.username);
-                  setLoggedInUser(response.data.accesslevelId);
-  
-                  setMessage(`Logged in as: ${userForAuth.username}`);
-                  setIsPositive(true);
-                  setShowMessage(true);
-  
-                  setTimeout(() => {
-                      setShowMessage(false);
-                  }, 5000);
-              }
+          event.preventDefault()
+          var userForAuth = {
+            username: username,
+            password: md5(password) // Salataan md5 kirjaston metodilla
+        }
+        
+        //console.log(userForAuth)
+    
+        LoginService.authenticate(userForAuth)
+        .then(response => {
+          if (response.status === 200) {
+
+            //talletetaan tiedot local storageen
+            localStorage.setItem("username", response.data.username)
+            localStorage.setItem("accesslevelId", response.data.accesslevelId)
+            localStorage.setItem("token", response.data.token)
+
+            setLoggedInUser(response.data.username)
+            setLoggedInUser(response.data.accesslevelId)
+
+           setMessage(`Logged in as: ${userForAuth.username}`)
+           setIsPositive(true)
+           setShowMessage(true)
+          
+           setTimeout(() => {
+            setShowMessage(false)
+           }, 5000)
+        }
+    
           })
           .catch(error => {
-              if (error.response && error.response.status === 401) {
-                  // Väärä käyttäjänimi tai salasana
-                  setMessage("Invalid username or password");
-              } else {
-                  setMessage(error.message);
-              }
-              setIsPositive(false);
-              setShowMessage(true);
-  
-              setTimeout(() => {
-                  setShowMessage(false);
-              }, 6000);
-          });
-  };
-  
+            setMessage(error.message)
+            setIsPositive(false)
+            setShowMessage(true)
+    
+            setTimeout(() => {
+              setShowMessage(false)
+             }, 6000)
+          })
+        }
     
     const emptyFields = () => {
         setUsername("")
