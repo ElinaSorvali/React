@@ -19,7 +19,7 @@ const Login = ({setIsPositive, setMessage, setShowMessage, setLoggedInUser}) => 
         }
 
         //Tarkistaa onko käyttäjänimi ja salasana syötetty
-    if (!username || !password) {
+    if (username===false || password===false) {
       setMessage("Username and password are required");
       setIsPositive(false);
       setShowMessage(true);
