@@ -41,54 +41,33 @@ const logout = () => {
    <div className='App'>
 {!loggedInUser && <Login setMessage={setMessage} setIsPositive={setIsPositive} 
 setShowMessage={setShowMessage} setLoggedInUser={setLoggedInUser} />}
-{ loggedInUser &&    
-      <Router>
-      
-      <Navbar id="navi" expand="lg" bg="dark" variant="dark">
-        <Nav className="mr-auto">
-            <Nav.Link href='/customers'>Customers</Nav.Link>
-            <Nav.Link href='/posts'>Some higlights</Nav.Link>
-            <Nav.Link href='/users'>Users</Nav.Link>
-            <Nav.Link href='/products'>Products</Nav.Link>
-            <Nav.Link href='/laskuri'>Laskuri</Nav.Link>
-            <button onClick={() => logout()}>Logout</button>
-            
-        </Nav>
-      </Navbar>
+{loggedInUser &&    
+  <Router>
+    <Navbar id="navi" expand="lg" bg="dark" variant="dark">
+      <Nav className="mr-auto">
+        <Nav.Link href='/customers'>Customers</Nav.Link>
+        <Nav.Link href='/posts'>Some higlights</Nav.Link>
+        {localStorage.getItem("accesslevelId") === "1" && <Nav.Link href='/users'>Users</Nav.Link>}
+        <Nav.Link href='/products'>Products</Nav.Link>
+        <Nav.Link href='/laskuri'>Laskuri</Nav.Link>
+        <button className='nappi2' onClick={() => logout()}>Logout</button>
+      </Nav>
+    </Navbar>
                     
     <h1>Northwind Corporation</h1>
 
     {showMessage && <Message message={message} isPositive={isPositive} />}
 
-    
     <Routes id="routes">
-      <Route path="/customers"
-      element={<CustomerList setMessage={setMessage} setIsPositive={setIsPositive} 
-      setShowMessage={setShowMessage} />}>
-      </Route>
-
-      <Route path="/users"
-      element={<UserList setMessage={setMessage} setIsPositive={setIsPositive} 
-      setShowMessage={setShowMessage} />}>
-      </Route>
-
-      <Route path="/products"
-      element={<ProductList setMessage={setMessage} setIsPositive={setIsPositive} 
-      setShowMessage={setShowMessage} />}>
-      </Route>
-
-      <Route path="/posts"
-      element={<Posts />}>
-      </Route>
-      
-      <Route path="/laskuri" 
-      element={<Laskuri />}>
-    </Route>
-    
+      <Route path="/customers" element={<CustomerList setMessage={setMessage} setIsPositive={setIsPositive} setShowMessage={setShowMessage} />} />
+      <Route path="/users" element={<UserList setMessage={setMessage} setIsPositive={setIsPositive} setShowMessage={setShowMessage} />} />
+      <Route path="/products" element={<ProductList setMessage={setMessage} setIsPositive={setIsPositive} setShowMessage={setShowMessage} />} />
+      <Route path="/posts" element={<Posts />} />
+      <Route path="/laskuri" element={<Laskuri />} />
     </Routes>
-  
   </Router>
 }
+
       </div>
      
 

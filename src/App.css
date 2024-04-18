@@ -1,6 +1,14 @@
 
+.App {
+  text-align: center;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+}
 #edit {
   font-size: medium;
+
 
 }
 
@@ -9,20 +17,40 @@
 }
 
 #navi{
-  min-width: 1200px;
+  width: 100vw;
+  background-color: darkslategrey !important;
+}
+/* #navi {
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 60px;
 }
 
+body {
+  padding-top: 60px;
+} */
 
-.customerDetails{
-  background-color: rgb(28, 119, 122);
-  border-style: solid;
+
+.customerDetails {
+  background-color: darkslategray;
+  border-style:ridge;
+  color: silver;
   width: 85%;
   margin: auto;
   margin-bottom: 50px;
   border-radius: 30px;
   padding-left: 10%;
   padding-right: 10%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  text-align: center; /* Keskittää sisällön vaakasuunnassa */
+
+  
 }
+
 
 .neg {
   color: red;
@@ -84,4 +112,82 @@
   background-color: cadetblue;
   color: white;
 }
+
+.nappi2 {
+  border-radius: 10px; 
+  margin-right: 10px;
+  font-size: 16px;
+  background-color: cadetblue;
+  color: white;
+
+}
+
+.addNew {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: darkslategray;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: medium;
+}
+
+.addNew div {
+  margin-bottom: 10px; /* Lisää tilaa lomakkeen kenttien välille */
+}
+
+.addNew input[type='text'],
+.addNew input[type='number'],
+.addNew input[type='password'],
+.addNew input[type='email'],
+.addNew input[type='radio'] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px; 
+}
+
+.addNew label {
+  margin-right: 10px;
+}
+
+.addNew input[type='radio'] {
+  margin-right: 5px; 
+}
+
+.edit {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: darkslategray;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: medium;
+  color: silver;
+}
+
+.edit div {
+  margin-bottom: 10px; /* Lisää tilaa lomakkeen kenttien välille */
+}
+
+.edit input[type='text'],
+.edit input[type='number'],
+.edit input[type='password'],
+.edit input[type='email'] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px; 
+}
+
+.edit label {
+  margin-right: 10px;
+}
+
+.edit input[type='radio'] {
+  margin-right: 5px; 
+}
+
 

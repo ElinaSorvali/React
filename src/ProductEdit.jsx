@@ -65,7 +65,7 @@ const ProductEdit = ({ setMuokkaustila, setIsPositive, setMessage, setShowMessag
         <div id="edit">
             <h2>Product edit</h2>
 
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className='edit'>
                 <div>ProductId<br /><input type='text' value={newProductId} disabled /></div>
                 <div>Product Name<br /><input type='text' value={newProductName} onChange={({ target }) => setNewProductName(target.value)} placeholder='Product name' /></div>
                 <div>Supplier Id<br /><input type='number' value={newSupplierId} onChange={({ target }) => setNewSupplierId(target.value)} placeholder='Supplier id' /></div>

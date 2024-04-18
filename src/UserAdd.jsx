@@ -2,6 +2,7 @@ import React, {useState } from 'react'
 import './App.css'
 import UserService from './services/User'
 import md5 from 'md5'
+import PasswordChecklist from "react-password-checklist"
 
 const UserAdd = ({setLisäystila, setIsPositive, setMessage, setShowMessage}) => {
 
@@ -9,9 +10,10 @@ const UserAdd = ({setLisäystila, setIsPositive, setMessage, setShowMessage}) =>
     const [newFirstname, setNewFirstname] = useState('')
     const [newLastname, setNewLastname] = useState('')
     const [newEmail, setNewEmail] = useState('')
-    const [newAccesslevelId, setNewAccesslevelId] = useState(2)
+    const [newAccesslevelId, setNewAccesslevelId] = useState('')
     const [newUsername, setNewUsername] = useState('')
     const [newPassword, setNewPassword] = useState('')
+    const [passwordAgain, setPasswordAgain] = useState('')
     
     
     // onSubmit tapahtumankäsittelijä funktio
@@ -21,7 +23,7 @@ const UserAdd = ({setLisäystila, setIsPositive, setMessage, setShowMessage}) =>
             firstname: newFirstname,
             lastname: newLastname,
             email: newEmail,
-            accesslevelId: parseInt(newAccesslevelId),
+            accesslevelId: parseInt(newAccesslevelId) || "2",
             username: newUsername,
             password: md5(newPassword) // Salataan md5 kirjaston metodilla
         }
@@ -57,16 +59,40 @@ const UserAdd = ({setLisäystila, setIsPositive, setMessage, setShowMessage}) =>
     
 
   return (
-    <div id="addNew">
+    <div>
     <h2>User add</h2>
 
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}  className='addNew'>
         <div><input type='text' value={newFirstname} onChange={({target}) => setNewFirstname(target.value)} placeholder='First name'/></div>
         <div><input type='text' value={newLastname} onChange={({target}) => setNewLastname(target.value)} placeholder='Last name' /></div>
         <div><input type='email' value={newEmail} onChange={({target}) => setNewEmail(target.value)} placeholder='Email' /></div>
-        <div><input type='number' value={newAccesslevelId} onChange={({target}) => setNewAccesslevelId(target.value)} placeholder='Access level' /></div>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+  <p style={{ color: 'silver', marginRight: '10px' }}>Access level</p>
+            <label>
+                <input type='radio' value='1' checked={newAccesslevelId === '1'} onChange={() => setNewAccesslevelId('1')}/>
+                1</label>
+            <label>
+                <input type='radio' value='2' checked={newAccesslevelId === '2'} onChange={() => setNewAccesslevelId('2')}/>
+                2</label>
+        </div>
         <div><input type='text' value={newUsername} onChange={({target}) => setNewUsername(target.value)} placeholder='Username' /></div>
         <div><input type='password' value={newPassword} onChange={({target}) => setNewPassword(target.value)} placeholder='Password' /></div>
+        <div><input type='password' value={passwordAgain} onChange={({target}) => setPasswordAgain(target.value)} placeholder='Repeat password' /></div>
+        {/* Tarkistaa että salasana on vähintään 5 merkkiä, siinä on isoja ja pieniä kirjaimia sekä että se on sama
+        kuin alemmassa tarkistusboksissa */}
+        <PasswordChecklist
+				rules={["minLength","capital","match"]}
+				minLength={5}
+				value={newPassword}
+				valueAgain={passwordAgain}
+				onChange={(isValid) => {}}
+        messages={{
+					minLength: <span style={{ color: 'silver' }}>At least 5 characters</span>,
+    capital: <span style={{ color: 'silver' }}>Use uppercase and lowercase letters</span>,
+    match: <span style={{ color: 'silver' }}>Passwords must match</span>,
+				}}
+			/>
+      <br></br>
         <p>
         <input type='submit' className='nappi' value='save' />
         <input type='button' className='nappi' value='back' onClick={() => setLisäystila(false)} /></p>

@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const baseUrl = "https://localhost:7024/api/Customers"
+// const baseUrl = "https://localhost:7024/api/Customers"
+const baseUrl = "https://northwindrestapi20240418084732.azurewebsites.net/api/Customers"
+
 //Axios-kirjastolla pitää olla oikeat nimet (delete, put jne) mutta metodin nimet voi itse valita
 
 let token = null

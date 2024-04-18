@@ -60,10 +60,10 @@ const CustomerAdd = ({setLisäystila, setIsPositive, setMessage, setShowMessage}
 
 
   return (
-    <div id="addNew">
+    <div>
     <h2>Customer add</h2>
 
-    <form on onSubmit={handleSubmit}>
+    <form on onSubmit={handleSubmit}  className='addNew'>
         <div><input type='text' value={newCustomerId} onChange={({target}) => setNewCustomerId(target.value)} placeholder='Customer ID'/></div>
         <div><input type='text' value={newCompanyName} onChange={({target}) => setNewCompanyName(target.value)} placeholder='Company Name' /></div>
         <div><input type='text' value={newContactName} onChange={({target}) => setNewContactName(target.value)} placeholder='Contact Name' /></div>

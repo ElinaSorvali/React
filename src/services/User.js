@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const baseUrl = "https://localhost:7024/api/Users"
+// const baseUrl = "https://localhost:7024/api/Users"
+const baseUrl = "https://northwindrestapi20240418084732.azurewebsites.net/api/Users"
 
 let token = null
 const setToken = newToken => {

@@ -14,7 +14,7 @@ const UserList = ({setIsPositive, setShowMessage, setMessage}) => {
   const [muokattavaUser, setMuokattavaUser] = useState(false)
   const [search, setSearch] = useState("")
 
-
+  
   useEffect(() => {
     //token-hommeli, että kirjautumishommeli toimii
     const token = localStorage.getItem('token')
@@ -77,6 +77,11 @@ const UserList = ({setIsPositive, setShowMessage, setMessage}) => {
       }, 5000);
     }
   }  
+
+  //onko käyttäjän accesslevelId tallennettu ja onko se 1
+  if (localStorage.getItem('accesslevelId') !== '1') {
+    return null;
+  }
 
   return (
     <>

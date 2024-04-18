@@ -30,6 +30,7 @@ const Login = ({setIsPositive, setMessage, setShowMessage, setLoggedInUser}) => 
             localStorage.setItem("token", response.data.token)
 
             setLoggedInUser(response.data.username)
+            setLoggedInUser(response.data.accesslevelId)
 
            setMessage(`Logged in as: ${userForAuth.username}`)
            setIsPositive(true)
@@ -58,10 +59,10 @@ const Login = ({setIsPositive, setMessage, setShowMessage, setLoggedInUser}) => 
     }
 
   return (
-    <div id="loginWindow">
-    <h2>Login</h2>
+    <div>
+    <h1>Login</h1>
 
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='edit'>
         <div><input type='text' value={username} onChange={({target}) => setUsername(target.value)} placeholder='Username' /></div>
         <div><input type='password' value={password} onChange={({target}) => setPassword(target.value)} placeholder='Password' /></div>
         <p>

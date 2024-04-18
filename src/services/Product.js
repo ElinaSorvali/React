@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const baseUrl = "https://localhost:7024/api/Products"
+// const baseUrl = "https://localhost:7024/api/Products"
+const baseUrl = "https://northwindrestapi20240418084732.azurewebsites.net/api/Products"
+
 //Axios-kirjastolla pitää olla oikeat nimet (delete, put jne) mutta metodin nimet voi itse valita
 const getAll = () => {
     
