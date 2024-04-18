@@ -17,6 +17,15 @@ const Login = ({setIsPositive, setMessage, setShowMessage, setLoggedInUser}) => 
             username: username,
             password: md5(password) // Salataan md5 kirjaston metodilla
         }
+
+        //Tarkistaa onko käyttäjänimi ja salasana syötetty
+    if (!username || !password) {
+      setMessage("Username and password are required");
+      setIsPositive(false);
+      setShowMessage(true);
+      return;
+  }
+
         
         //console.log(userForAuth)
     
